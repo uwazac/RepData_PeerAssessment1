@@ -27,7 +27,7 @@ summary(steps_perDayTotal)
 ```
 ####
 ```{r, barchart, fig.width=6, fig.height=10, echo=FALSE}
- print(histogram(~`sum(steps)`, data=good_steps_perDayTotal, xlab="Total Steps", scales=list(alternating='2', cex=c(0.9,1)), nint=52, auto.key=T))
+print(barchart(`date`~`sum(steps)`, data=steps_perDayTotal, xlab="Total Steps", ylab="Date", scales=list(alternating='1', cex=c(0.9,1)), auto.key=T, horizontal=T, main="Total Steps per Day"))
 ```
 
 #### Use the dplyr library to calculate the mean steps per day
