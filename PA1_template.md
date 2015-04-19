@@ -26,16 +26,16 @@ activity$date<-dates
 #### Use the dplyr library to calculate the total steps per day
 
 ```r
-steps_perDay<-distinct(activity, steps)
-steps_perDayTotal<-summarise(group_by(steps_perDay, date), sum(steps))
+steps_perDayTotal<-summarise(group_by(activity, date), sum(steps))
 total_steps<-sum(steps_perDayTotal$"sum(steps)", na.rm=T)
 total_days<-dim(steps_perDayTotal)[[1]]
+cat("The total number of taken per day is: ", total_steps/total_days, "\n\n")
 ```
-#### Total steps per day
 
 ```
-## The total number of taken per day is:  4109.365
+## The total number of taken per day is:  9354.23
 ```
+
 ### Plot the frequency distribution of total steps per day
 
 ```r
@@ -52,7 +52,7 @@ cat("The mean number of steps is: ", steps_means, "\n\n")
 ```
 
 ```
-## The mean number of steps is:  4189.941
+## The mean number of steps is:  10766.19
 ```
 #### Calculate the median steps per day
 
@@ -62,7 +62,7 @@ cat("The median number of steps is: ", steps_median, "\n\n")
 ```
 
 ```
-## The median number of steps is:  3765
+## The median number of steps is:  10765
 ```
 
 #### Inputing missing values
@@ -161,7 +161,7 @@ cat("The total number of steps taken per day after filling is: ", total_steps_fi
 ```
 
 ```
-## The total number of steps taken per day after filling is:  9903.73
+## The total number of steps taken per day after filling is:  10766.19
 ```
 
 ```r
@@ -170,7 +170,7 @@ cat("The mean number of steps after filling is: ", steps_means_filled, "\n\n")
 ```
 
 ```
-## The mean number of steps after filling is:  9903.73
+## The mean number of steps after filling is:  10766.19
 ```
 
 ```r
@@ -179,7 +179,7 @@ cat("The median number of steps after filling is: ", steps_median_filled, "\n\n"
 ```
 
 ```
-## The median number of steps after filling is:  10395
+## The median number of steps after filling is:  10766.19
 ```
 
 #### Convert weekdays and weekends and add these factors to the table
